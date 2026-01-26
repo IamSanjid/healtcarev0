@@ -3,7 +3,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-    --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+    --font-sans: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
 
     --color-background: var(--background);
     --color-foreground: var(--foreground);
@@ -116,7 +116,7 @@
     }
 
     body {
-    letter-spacing: var(--tracking-normal);
+        letter-spacing: var(--tracking-normal);
     }
 }
 
@@ -129,6 +129,19 @@
         @apply bg-background text-foreground;
         font-feature-settings: "rlig" 1, "calt" 1;
         scrollbar-gutter: stable;
+        font-weight: 400;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    b,
+    strong,
+    th {
+        font-weight: 500 !important;
     }
 }
 
@@ -137,7 +150,7 @@
 }
 
 .text-gradient {
-    @apply bg-clip-text text-transparent bg-linear-to-br from-primary via-indigo-400 to-violet-500;
+    @apply bg-clip-text text-transparent bg-linear-to-br from-primary to-blue-500;
 }
 
 .soft-shadow {
@@ -250,8 +263,8 @@
     --sidebar-accent-foreground: oklch(0 0 0);
     --sidebar-border: oklch(0 0 0);
     --sidebar-ring: oklch(0.7853 0.1041 274.7134);
-    --font-sans: DM Sans, sans-serif;
-    --font-serif: DM Sans, sans-serif;
+    --font-sans: var(--font-figtree), sans-serif;
+    --font-serif: var(--font-figtree), sans-serif;
     --font-mono: Space Mono, monospace;
     --shadow-color: #1a1a1a;
     --shadow-opacity: 0.05;
@@ -306,8 +319,8 @@
     --sidebar-accent-foreground: oklch(0 0 0);
     --sidebar-border: oklch(1.0000 0 0);
     --sidebar-ring: oklch(0.6801 0.1583 276.9349);
-    --font-sans: DM Sans, sans-serif;
-    --font-serif: DM Sans, sans-serif;
+    --font-sans: var(--font-figtree), sans-serif;
+    --font-serif: var(--font-figtree), sans-serif;
     --font-mono: Space Mono, monospace;
     --shadow-color: #1a1a1a;
     --shadow-opacity: 0.05;

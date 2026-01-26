@@ -15,6 +15,7 @@ export function Navbar() {
 
   const navLinks = [
     { name: "Doctors", href: "/doctors" },
+    { name: "Care Corner", href: "/wellness" },
     { name: "Resources", href: "/resources" },
     { name: "Emergency", href: "/emergency" },
     { name: "FAQ", href: "/faq" },
@@ -63,16 +64,16 @@ export function Navbar() {
               className={`w-12 h-12 rounded-full flex items-center justify-center transition-all active:scale-95 shadow-lg group pointer-events-auto ${
                 isSolid 
                   ? "bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20" 
-                  : "bg-white/10 backdrop-blur-md border border-white/10 text-white hover:bg-white/20"
+                  : "bg-white/10 backdrop-blur-md border border-white/10 text-white/80 hover:bg-white/20"
               }`}
             >
               <Menu className="w-5 h-5 group-hover:rotate-180 transition duration-500" />
             </button>
-            <Link href="/" className="group flex items-center gap-2 font-bold ">
-              <span className={`text-2xl  tracking-tighter transition-all ${
+            <Link href="/" className="group flex items-center gap-2 font-medium ">
+              <span className={`text-2xl tracking-tighter transition-all ${
                 isSolid ? "text-foreground" : "text-white"
-              }`} style={{ fontFamily: "'Neue Machina', var(--font-outfit), sans-serif" }}>
-                UIU<span className="bg-gradient-to-r from-violet-500 via-purple-500 to-fuchsia-500 bg-clip-text text-transparent">.healthcare</span>
+              }`} style={{ fontFamily: "var(--font-figtree), sans-serif" }}>
+                <span className="text-primary font-light italic">UIU Healthcare</span>
               </span>
             </Link>
           </div>
@@ -97,7 +98,7 @@ export function Navbar() {
                   asChild
                   variant="destructive"
                   size="sm"
-                  className="rounded-full px-5 h-10 font-bold text-[11px] uppercase tracking-widest shadow-lg shadow-destructive/20 hover:scale-105 active:scale-95 border-none"
+                  className="rounded-full px-5 h-10 font-medium text-[11px] uppercase tracking-widest shadow-lg shadow-destructive/20 hover:scale-105 active:scale-95 border-none"
                 >
                   <Link href="/emergency">Emergency</Link>
                 </Button>
@@ -105,7 +106,7 @@ export function Navbar() {
                 <Button 
                   asChild
                   size="sm"
-                  className={`rounded-full px-5 h-10 font-black text-[11px] uppercase  transition-all hover:scale-105 active:scale-95 border-none ${
+                  className={`rounded-full px-5 h-10 font-medium text-[11px] uppercase transition-all hover:scale-105 active:scale-95 border-none ${
                     isSolid
                       ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
                       : "bg-white text-primary hover:bg-white/90"
@@ -141,8 +142,8 @@ export function Navbar() {
               className="fixed top-0 left-0 z-[70] h-full w-[340px] bg-background/95 backdrop-blur-2xl border-r border-border p-10 shadow-2xl flex flex-col"
             >
               <div className="flex justify-between items-center mb-16">
-                 <div className="text-2xl font-black tracking-tighter" style={{ fontFamily: "'Neue Machina', var(--font-outfit), sans-serif" }}>
-                   UIU<span className="text-primary">.care</span>
+                 <div className="text-2xl font-medium tracking-tighter" style={{ fontFamily: "var(--font-figtree), sans-serif" }}>
+                   UIU<span className="text-primary font-light italic">.care</span>
                 </div>
                 <button 
                   onClick={() => setIsOpen(false)}
@@ -163,8 +164,8 @@ export function Navbar() {
                     <Link
                       href={link.href}
                       onClick={() => setIsOpen(false)}
-                      className="text-4xl font-black text-foreground/40 hover:text-foreground transition-all flex items-center group py-1 tracking-tighter"
-                      style={{ fontFamily: "'Neue Machina', var(--font-outfit), sans-serif" }}
+                      className="text-4xl font-light text-foreground/40 hover:text-foreground transition-all flex items-center group py-1 tracking-tighter"
+                      style={{ fontFamily: "var(--font-figtree), sans-serif" }}
                     >
                       <span className="w-0 group-hover:w-6 h-1 bg-primary mr-0 group-hover:mr-4 transition-all rounded-full opacity-0 group-hover:opacity-100" />
                       {link.name}
@@ -175,17 +176,17 @@ export function Navbar() {
 
               <div className="mt-auto space-y-12">
                  <div className="space-y-4">
-                    <p className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground opacity-50">Quick Access</p>
+                    <p className="text-[10px] font-medium uppercase tracking-[0.3em] text-muted-foreground opacity-50">Quick Access</p>
                     <div className="grid grid-cols-2 gap-3">
-                       <Link href="/login" onClick={() => setIsOpen(false)} className="h-12 bg-muted rounded-2xl flex items-center justify-center font-bold text-xs hover:bg-primary hover:text-white transition-colors">Portal</Link>
-                       <Link href="/register" onClick={() => setIsOpen(false)} className="h-12 bg-muted rounded-2xl flex items-center justify-center font-bold text-xs hover:bg-primary hover:text-white transition-colors">Join</Link>
+                       <Link href="/login" onClick={() => setIsOpen(false)} className="h-12 bg-muted rounded-2xl flex items-center justify-center font-medium text-xs hover:bg-primary hover:text-white transition-colors">Portal</Link>
+                       <Link href="/register" onClick={() => setIsOpen(false)} className="h-12 bg-muted rounded-2xl flex items-center justify-center font-medium text-xs hover:bg-primary hover:text-white transition-colors">Join</Link>
                     </div>
                  </div>
 
                  <div className="pt-8 border-t border-border flex items-center justify-between">
                     <div className="flex items-center gap-2">
                        <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                       <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">System Online</span>
+                       <span className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground">System Online</span>
                     </div>
                     <Heart className="w-4 h-4 text-primary fill-primary/20" />
                  </div>
@@ -197,4 +198,3 @@ export function Navbar() {
     </>
   );
 }
- 

@@ -84,13 +84,15 @@ export function AppSidebar({ user }: AppSidebarProps) {
   return (
     <Sidebar variant="inset" collapsible="icon">
       <SidebarHeader className="p-4 border-b">
-        <div className="flex items-center gap-3 px-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-            <Activity className="h-5 w-5" />
+        <div className="flex items-center gap-3 px-2 transition-all">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary shadow-sm">
+            <Activity className="h-6 w-6" />
           </div>
           <div className="flex flex-col overflow-hidden">
-            <span className="font-bold tracking-tight truncate leading-none">UIU Health</span>
-            <span className="text-[10px] text-muted-foreground uppercase tracking-wider font-semibold mt-1">
+            <span className="text-xl tracking-tighter leading-none font-medium">
+                UIU<span className="text-primary italic font-light"> Healthcare</span>
+            </span>
+            <span className="text-[10px] text-muted-foreground uppercase tracking-[0.2em] font-medium mt-1.5 opacity-70">
               {user.role} Portal
             </span>
           </div>

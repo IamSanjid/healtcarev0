@@ -42,8 +42,8 @@ export default async function ProfilePage() {
                   <Edit className="h-4 w-4" />
                 </Button>
               </div>
-              <h2 className="text-xl font-bold mb-1">{user.name}</h2>
-              <Badge variant="secondary" className="rounded-full px-3 py-1 bg-primary/10 text-primary border-none mb-4 uppercase text-[10px] tracking-widest font-bold">
+              <h2 className="text-xl font-medium mb-1">{user.name}</h2>
+              <Badge variant="secondary" className="rounded-full px-3 py-1 bg-primary/10 text-primary border-none mb-4 uppercase text-[10px] tracking-widest font-medium">
                 {user.role}
               </Badge>
               <div className="text-sm text-muted-foreground space-y-2">

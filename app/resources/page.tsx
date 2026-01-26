@@ -21,7 +21,7 @@ export default function ResourcesPage() {
     <div className="py-12 md:py-20 animate-in fade-in slide-in-from-bottom-4 duration-700">
       <div className="max-w-3xl mb-12 text-center md:text-left mx-auto md:mx-0">
         <Badge variant="outline" className="mb-4 text-primary border-primary/20 bg-primary/5">Wellness Library</Badge>
-        <h1 className="text-4xl font-bold tracking-tight md:text-5xl mb-6">
+        <h1 className="text-4xl font-medium tracking-tight md:text-5xl mb-6">
           Your Guide to <span className="text-primary italic">Better Living</span>
         </h1>
         <p className="text-lg text-muted-foreground leading-relaxed font-medium">
