@@ -10,13 +10,44 @@ import Link from "next/link";
 import { useState } from "react";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useRouter } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 export default function RegisterPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  
   const router = useRouter();
 
+  const validateEmail = (val: string) => {
+    setEmail(val);
+    if (!val) {
+      setEmailError("");
+    } else if (!val.toLowerCase().endsWith("uiu.ac.bd")) {
+      setEmailError("Must be a valid @uiu.ac.bd email");
+    } else {
+      setEmailError("");
+    }
+  };
+
+  const validatePassword = (val: string) => {
+    setPassword(val);
+    if (!val) {
+      setPasswordError("");
+    } else if (val.length < 8) {
+      setPasswordError("Minimum 8 characters required");
+    } else {
+      setPasswordError("");
+    }
+  };
+
+  const isFormValid = email.toLowerCase().endsWith("@uiu.ac.bd") && password.length >= 8 && email && password;
+
   async function handleSubmit(formData: FormData) {
+    if (!isFormValid) return;
     setLoading(true);
     setError("");
     try {
@@ -58,21 +89,44 @@ export default function RegisterPage() {
 
           <Card className="border-none shadow-2xl shadow-black/5 dark:shadow-white/5 rounded-[2.5rem] bg-white dark:bg-card/50">
              <CardContent className="p-2 space-y-2">
-               <form action={handleSubmit} className="space-y-4">
-                 <div className="grid grid-cols-2 gap-3">
+               <form action={handleSubmit} className="space-y-4 p-4">
+                 <div className="flex flex-col gap-3">
                     <div className="space-y-1.5">
                       <Label className="text-[10px] uppercase tracking-widest text-muted-foreground ml-1">Full Name</Label>
                       <Input name="name" placeholder="John Doe" required className="h-11 rounded-2xl bg-muted/30 border-none focus-visible:ring-secondary/20 font-light text-sm" />
                     </div>
                     <div className="space-y-1.5">
                         <Label className="text-[10px] uppercase tracking-widest text-muted-foreground ml-1">UIU Email</Label>
-                        <Input name="email" type="email" placeholder="student@uiu.ac.bd" required className="h-11 rounded-2xl bg-muted/30 border-none focus-visible:ring-secondary/20 font-light text-sm" />
+                        <Input 
+                          name="email" 
+                          type="email" 
+                          value={email}
+                          onChange={(e) => validateEmail(e.target.value)}
+                          placeholder="student@uiu.ac.bd" 
+                          required 
+                          className={cn(
+                            "h-11 rounded-2xl bg-muted/30 border-none focus-visible:ring-secondary/20 font-light text-sm",
+                            emailError && "ring-1 ring-destructive/50 bg-destructive/5"
+                          )} 
+                        />
+                        {emailError && <p className="text-[10px] text-destructive ml-2 font-medium">{emailError}</p>}
                     </div>
                  </div>
 
                  <div className="space-y-1.5">
                    <Label className="text-[10px] uppercase tracking-widest text-muted-foreground ml-1">Secure Password</Label>
-                   <Input name="password" type="password" required className="h-11 rounded-2xl bg-muted/30 border-none focus-visible:ring-secondary/20 font-light text-sm" />
+                   <Input 
+                    name="password" 
+                    type="password" 
+                    value={password}
+                    onChange={(e) => validatePassword(e.target.value)}
+                    required 
+                    className={cn(
+                      "h-11 rounded-2xl bg-muted/30 border-none focus-visible:ring-secondary/20 font-light text-sm",
+                      passwordError && "ring-1 ring-destructive/50 bg-destructive/5"
+                    )}
+                   />
+                   {passwordError && <p className="text-[10px] text-destructive ml-2 font-medium">{passwordError}</p>}
                  </div>
 
                  <div className="space-y-2">
@@ -109,8 +163,8 @@ export default function RegisterPage() {
 
                  <Button 
                    type="submit" 
-                   className="w-full h-12 rounded-2xl text-sm font-medium bg-secondary hover:bg-secondary/90 text-white shadow-xl shadow-secondary/10 transition-all active:scale-95" 
-                   disabled={loading}
+                   className="w-full h-12 rounded-2xl text-sm font-medium bg-secondary hover:bg-secondary/90 text-white shadow-xl shadow-secondary/10 transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed" 
+                   disabled={loading || !isFormValid}
                  >
                    {loading ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : "Complete Registration"}
                  </Button>
