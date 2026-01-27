@@ -44,7 +44,7 @@ export default function RegisterPage() {
     }
   };
 
-  const isFormValid = email.toLowerCase().endsWith("@uiu.ac.bd") && password.length >= 8 && email && password;
+  const isFormValid = email.toLowerCase().endsWith("uiu.ac.bd") && password.length >= 8 && email && password;
 
   async function handleSubmit(formData: FormData) {
     if (!isFormValid) return;
@@ -93,7 +93,7 @@ export default function RegisterPage() {
                  <div className="flex flex-col gap-3">
                     <div className="space-y-1.5">
                       <Label className="text-[10px] uppercase tracking-widest text-muted-foreground ml-1">Full Name</Label>
-                      <Input name="name" placeholder="John Doe" required className="h-11 rounded-2xl bg-muted/30 border-none focus-visible:ring-secondary/20 font-light text-sm" />
+                      <Input name="name" placeholder="John Doe" required className="h-11 rounded-2xl bg-muted/30 border-none focus-visible:ring-secondary/20 font-light  placeholder-slate-600 placeholder:opacity-50" />
                     </div>
                     <div className="space-y-1.5">
                         <Label className="text-[10px] uppercase tracking-widest text-muted-foreground ml-1">UIU Email</Label>
