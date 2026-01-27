@@ -102,6 +102,11 @@ export function Navbar() {
                 >
                   <Link href="/emergency">Emergency</Link>
                 </Button>
+                
+                <Button className=" rounded-full bg-blue-500 px-5 h-10 font-semibold text-[11px] uppercase tracking-widest shadow-lg shadow-destructive/20 hover:scale-105 active:scale-95 border-none">
+                  <Link href="/wellness">Care Corner</Link>
+                </Button>
+
 
                 <Button 
                   asChild
