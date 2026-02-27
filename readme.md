@@ -3,7 +3,7 @@ Eemergency doctor appointment for UIU Students. Student can search for available
 
 Technologies:
 * React/Next.js
-* Prisma with Neon hosting.
+* PostgreSQL using Prisma with Neon hosting.
 
 ## Development
 
