@@ -38,10 +38,10 @@ export default function AppointmentCard({ appt }: AppointmentCardProps) {
 
   const getStatusBadge = (status: string) => {
     switch (status) {
-      case "PENDING": return <Badge variant="outline" className="bg-yellow-500/10 text-yellow-600 border-none font-bold uppercase text-[10px]">Pending</Badge>;
-      case "CONFIRMED": return <Badge variant="outline" className="bg-green-500/10 text-green-600 border-none font-bold uppercase text-[10px]">Confirmed</Badge>;
-      case "COMPLETED": return <Badge variant="outline" className="bg-blue-500/10 text-blue-600 border-none font-bold uppercase text-[10px]">Completed</Badge>;
-      case "CANCELLED": return <Badge variant="outline" className="bg-destructive/10 text-destructive border-none font-bold uppercase text-[10px]">Cancelled</Badge>;
+      case "PENDING": return <Badge variant="outline" className="bg-yellow-500/10 text-yellow-600 border-none font-medium uppercase text-[10px]">Pending</Badge>;
+      case "CONFIRMED": return <Badge variant="outline" className="bg-green-500/10 text-green-600 border-none font-medium uppercase text-[10px]">Confirmed</Badge>;
+      case "COMPLETED": return <Badge variant="outline" className="bg-blue-500/10 text-blue-600 border-none font-medium uppercase text-[10px]">Completed</Badge>;
+      case "CANCELLED": return <Badge variant="outline" className="bg-destructive/10 text-destructive border-none font-medium uppercase text-[10px]">Cancelled</Badge>;
       default: return <Badge variant="outline">{status}</Badge>;
     }
   };
